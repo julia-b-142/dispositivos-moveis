@@ -1,11 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
+function MeuComponente(){
+  return(
+    <Text style={{paddingTop:24, fontSize: 24, color: "white"}}>
+      Olá, mundo 
+    </Text>
+    
+  )
+}
+
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={{flex: 1, backgroundColor: "blue"}}>
+      <MeuComponente/>
+      <StatusBar style='auto'/>
     </View>
   );
 }
