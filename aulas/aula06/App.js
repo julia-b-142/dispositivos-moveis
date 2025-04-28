@@ -8,7 +8,7 @@ function App() {
   return (
     <SafeAreaProvider>
       <NavigationContainer>
-        <NavegacaoAbaSuperior/>
+        <NavegacaoPilha/>
       </NavigationContainer>
     </SafeAreaProvider>
   );
