@@ -4,13 +4,13 @@ import Perfil from "../screens/Perfil";
 
 const Tab = createMaterialTopTabNavigator();
 
-function NavegacaoAbaSuperior(){
-    return(
-        <Tab.Navigator>
-            <Tab.Screen name = "Home" component={Home}/>
-            <Tab.Screen name = "Perfil" component={Perfil}/>
-        </Tab.Navigator>
-    )
+function NavegacaoAbaSuperior() {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Home" component={Home} />
+      <Tab.Screen name="Perfil" component={Perfil} />
+    </Tab.Navigator>
+  );
 }
 
 export default NavegacaoAbaSuperior;

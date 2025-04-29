@@ -3,13 +3,16 @@ import { NavigationContainer } from "@react-navigation/native";
 import NavegacaoPilha from "./routes/NavegacaoPilha";
 import NavegacaoAbaInferior from "./routes/NavegacaoAbaInferior";
 import NavegacaoAbaSuperior from "./routes/NavegacaoAbaSuperior";
+import NavegacaoGaveta from "./routes/NavegacaoGaveta";
+import { AuthProvider } from "./contexts/AuthContext";
+import NavegacaoPrincipal from "./routes/NavegacaoPrincipal";
 
 function App() {
   return (
     <SafeAreaProvider>
-      <NavigationContainer>
-        <NavegacaoPilha/>
-      </NavigationContainer>
+      <AuthProvider>
+        <NavegacaoPrincipal/>
+      </AuthProvider>
     </SafeAreaProvider>
   );
 }
