@@ -6,7 +6,7 @@ function App() {
   return (
     <SafeAreaProvider>
       <NavigationContainer>
-        <MainNavigator/>
+        <MainNavigator />
       </NavigationContainer>
     </SafeAreaProvider>
   );
