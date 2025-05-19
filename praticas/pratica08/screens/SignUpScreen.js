@@ -1,7 +1,7 @@
 import { Controller, useForm } from "react-hook-form";
 import { TouchableOpacity, View } from "react-native";
 import { Button, Text, TextInput } from "react-native-paper";
-import {yupResolver} from "@hookform/resolvers/yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 
 const schema = Yup.object().shape({
@@ -12,30 +12,53 @@ const schema = Yup.object().shape({
 });
 
 function SignUpScreen() {
-    const {control, handleSubmit, formState:{errors}} = useForm({resolver: yupResolver(schema)});
-    const onSubmit = (data)=>{
+    const { control, handleSubmit, formState: { errors } } = useForm({ resolver: yupResolver(schema) });
+    const onSubmit = (data) => {
         alert("Conta criada com sucesso!");
     }
 
     return (
-        <View style={{padding: 16, flex: 1}}>
+        <View style={{ padding: 16, flex: 1 }}>
             <Controller control={control}
-            name="nome"
-            render={({field:{onChange, value}}) =>(
-                <TextInput placeholder="Nome"
-                value={value}
-                onChangeText={onChange}
-                error={!!errors.nome}/>
-            )}>
+                name="nome"
+                render={({ field: { onChange, value } }) => (
+                    <TextInput placeholder="Nome"
+                        value={value}
+                        onChangeText={onChange}
+                        error={!!errors.nome} />
+                )}></Controller>
+            {errors.nome && <Text>{errors.nome.message}</Text>}
+            <Controller control={control}
+                name="email"
+                render={({ field: { onChange, value } }) => (
+                    <TextInput placeholder="E-mail"
+                        value={value}
+                        onChangeText={onChange}
+                        error={!!errors.email} />
+                )}></Controller>
+            {errors.email && <Text>{errors.email.message}</Text>}
+            <Controller control={control}
+                name="senha"
+                render={({ field: { onChange, value } }) => (
+                    <TextInput placeholder="Senha"
+                        value={value}
+                        onChangeText={onChange}
+                        error={!!errors.senha} />
+                )}></Controller>
+            {errors.senha && <Text>{errors.senha.message}</Text>}
+            <Controller control={control}
+                name="confirmarSenha"
+                render={({ field: { onChange, value } }) => (
+                    <TextInput placeholder="Confirmar Senha"
+                        value={value}
+                        onChangeText={onChange}
+                        error={!!errors.confirmarSenha} />
+                )}></Controller>
+            {errors.confirmarSenha && <Text>{errors.confirmarSenha.message}</Text>}
 
-            </Controller>
-
-            <TextInput placeholder="E-mail" keyboardType="email"></TextInput>
-            <TextInput placeholder="Senha" secureTextEntry></TextInput>
-            <TextInput placeholder="Confirmar Senha"></TextInput>
-            <Button onPress={() => { }}>Entrar</Button>
+            <Button onPress={handleSubmit(onSubmit)}>Entrar</Button>
             <TouchableOpacity>
-                <View style={{alignItems: "center"}}>
+                <View style={{ alignItems: "center" }}>
                     <Text>Voltar para o Login</Text>
                 </View>
             </TouchableOpacity>
