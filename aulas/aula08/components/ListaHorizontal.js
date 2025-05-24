@@ -1,29 +1,29 @@
-import { View, FlatList} from "react-native";
-import {Text, Button} from "react-native-paper";
+import { useContext } from "react";
+import { View, FlatList } from "react-native";
+import { Button, Text } from "react-native-paper";
 
-function ListaHorizontal(){
-    const categorias = [
-        "Restaurantes",
-        "Bares",
-        "Lanchonete",
-        "Pizzarias",
-        "Sorveterias"
-    ];
+import { LojaContext } from "../contexts/LojaContext";
 
-    return(
-        <View>
-            <Text variant="titleMedium">Categorias</Text>
-            <FlatList
-                data={categorias}
-                horizontal
-                showsHorizontalScrollIndicator={false}
-                keyExtractor={(item, index) => index}
-                renderItem={({item}) =>(
-                    <Button style={{marginRight: 8}}>{item} </Button>
-                )}
-            />
-        </View>
-    );
+function ListaHorizontal() {
+  const { categorias } = useContext(LojaContext);
+  return (
+    <View style={{ marginBottom: 8 }}>
+      <Text variant="titleMedium">Categorias</Text>
+      <FlatList
+        data={categorias}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        keyExtactor={(item, index) => index}
+        renderItem={({ item }) => (
+          <View style={{ flex: 1, marginRight: 8 }}>
+            <Button mode="outlined" icon={item.icone}>
+              {item.nome}
+            </Button>
+          </View>
+        )}
+      />
+    </View>
+  );
 }
 
 export default ListaHorizontal;
