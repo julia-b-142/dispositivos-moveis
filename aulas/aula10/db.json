@@ -1,0 +1,22 @@
+{
+  "tarefas": [
+    {
+      "id": "1a2b",
+      "descricao": "Estudar API",
+      "concluida": true
+    },
+    {
+      "id": "3c4d",
+      "descricao": "Praticar Programação",
+      "concluida": false
+    },
+    {
+      "id": "b8d7"
+    },
+    {
+      "id": "d163",
+      "descricao": "Julia",
+      "concluida": false
+    }
+  ]
+}
